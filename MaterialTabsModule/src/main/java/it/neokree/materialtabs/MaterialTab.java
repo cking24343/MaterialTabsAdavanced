@@ -113,6 +113,17 @@ public class MaterialTab<T extends TextView> implements View.OnTouchListener {
         this.text.setText(text.toString().toUpperCase(Locale.US));
         return this;
     }
+    
+     public MaterialTab setText(CharSequence text, boolean toUpperCase) {
+        if (hasIcon)
+            throw new RuntimeException("You had set tabs with icons, uses icons instead text");
+ 
+        //Give devs option to let the case be as it is or alll upper...
+        if(toUpperCase)
+            this.text.setText(text.toString().toUpperCase(Locale.US));
+            
+        return this;
+    } 
 
     public MaterialTab setIcon(Drawable icon) {
         if (!hasIcon)
